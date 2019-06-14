@@ -13,21 +13,19 @@ import android.webkit.WebView
 import android.webkit.WebViewClient
 import android.widget.ProgressBar
 import com.jagdish.sequentialtabdemo.MainActivity
-
 import com.jagdish.sequentialtabdemo.R
 import com.jagdish.sequentialtabdemo.utility.ConnectionDetector
 import com.jagdish.sequentialtabdemo.utility.Utility
 
-class ThirdFragment : Fragment() {
+class FourthFragment : Fragment() {
 
-    public fun newInstance(): ThirdFragment {
-        return ThirdFragment()
+    public fun newInstance(): FourthFragment {
+        return FourthFragment()
     }
 
     lateinit var activityContext: MainActivity;
     lateinit var connectionDetector: ConnectionDetector
     internal var isViewInitialized = false
-
 
     override fun setUserVisibleHint(isVisibleToUser: Boolean) {
         super.setUserVisibleHint(isVisibleToUser)
@@ -44,7 +42,6 @@ class ThirdFragment : Fragment() {
         }
     }
 
-
     override fun onAttach(context: Context?) {
         super.onAttach(context)
         if (activity != null) {
@@ -53,7 +50,6 @@ class ThirdFragment : Fragment() {
         }
     }
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
@@ -61,7 +57,6 @@ class ThirdFragment : Fragment() {
 
     lateinit var webView: WebView;
     lateinit var progressBar: ProgressBar;
-
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -79,7 +74,7 @@ class ThirdFragment : Fragment() {
     }
 
     fun loadData() {
-        webView.loadUrl("https://www.timesnownews.com/");
+        webView.loadUrl("https://www.bing.com/");
         setupWebViewClient()
     }
 
@@ -91,16 +86,15 @@ class ThirdFragment : Fragment() {
             }
 
             override fun onPageFinished(view: WebView, url: String) {
-                Log.d("ThirdFragment", "jk Page loading finished");
-                hideProgressBar()
+                Log.d("FourthFragment", "jk Page loading finished");
+                hideProgressBar();
                 if (activityContext.autoSelected)
                     activityContext.loadNextPage()
             }
 
             override fun onReceivedError(view: WebView?, request: WebResourceRequest?, error: WebResourceError?) {
-                hideProgressBar()
+                hideProgressBar();
                 Utility.showAlertDialog(activityContext, resources.getString(R.string.title_error_loading_data), resources.getString(R.string.message_no_internet))
-
             }
         }
     }
@@ -112,4 +106,5 @@ class ThirdFragment : Fragment() {
     private fun hideProgressBar() {
         progressBar.visibility = View.GONE
     }
+
 }

@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">Sequential Tabs Demo</string>
+
+    <!-- Alert message -->
+    <string name="title_no_internet">No Internet Connection</string>
+    <string name="message_no_internet">You need to have Mobile Data or Wi-Fi to show webpage results.</string>
+
+    <string name="title_error_loading_data">Error Loading Data</string>
+    <string name="message_unable_to_load_data">Unable to load data. Please try again.</string>
+
+    <!-- Labels -->
+    <string name="ok">OK</string>
+
 </resources>
